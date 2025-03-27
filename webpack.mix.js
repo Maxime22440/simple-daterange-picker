@@ -1,5 +1,8 @@
 let mix = require('laravel-mix')
+import moment from 'dist/js/moment.min'
+import 'moment/locale/fr'
 
+moment.locale('fr')
 require('./nova.mix')
 
 mix
