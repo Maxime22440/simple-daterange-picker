@@ -122,6 +122,8 @@ export default {
       const maxDate = ref.filter.maxDate
 
       moment.locale('fr')
+      console.log('moment.locale()');
+      console.log(moment.locale());
 
       $(idSelector).daterangepicker({
         "startDate": ref.startDate,
@@ -151,7 +153,7 @@ export default {
       })
       .on('apply.daterangepicker', function(ev, picker) {
         if (ref.currentStartDate && ref.currentEndDate) {
-          ref.value = ref.currentStartDate.format('DD/MM/YYYY') + ' to ' + ref.currentEndDate.format('DD/MM/YYYY')
+          ref.value = ref.currentStartDate.format('DD/MM/YYYY') + ' - ' + ref.currentEndDate.format('DD/MM/YYYY')
         }
       })
     },
