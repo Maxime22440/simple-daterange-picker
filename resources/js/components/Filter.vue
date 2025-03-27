@@ -35,6 +35,10 @@
 
 <script>
 import debounce from 'lodash/debounce'
+import moment from '../../../dist/js/moment.min'
+import 'moment/locale/fr'
+
+moment.locale('fr')
 
 export default {
   emits: ['change'],
@@ -121,7 +125,6 @@ export default {
       const minDate = ref.filter.minDate
       const maxDate = ref.filter.maxDate
 
-      moment.locale('fr')
       console.log('moment.locale()');
       console.log(moment.locale());
 
