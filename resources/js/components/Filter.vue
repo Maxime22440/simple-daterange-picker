@@ -121,12 +121,28 @@ export default {
       const minDate = ref.filter.minDate
       const maxDate = ref.filter.maxDate
 
+      moment.locale('fr')
+
       $(idSelector).daterangepicker({
         "startDate": ref.startDate,
 			  "endDate": ref.endDate,
         "minDate": (minDate ? moment(minDate) : null),
         "maxDate": (maxDate ? moment(maxDate) : null),
         "ranges": ref.parseRanges(),
+        locale: {
+          format: 'DD/MM/YYYY',
+          separator: ' - ',
+          applyLabel: 'Appliquer',
+          cancelLabel: 'Annuler',
+          fromLabel: 'Du',
+          toLabel: 'Au',
+          daysOfWeek: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+          monthNames: [
+            'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+          ],
+          firstDay: 1
+        },
       }, function(start, end, label) {
         if (start && end) {
           ref.currentStartDate = start
@@ -135,7 +151,7 @@ export default {
       })
       .on('apply.daterangepicker', function(ev, picker) {
         if (ref.currentStartDate && ref.currentEndDate) {
-          ref.value = ref.currentStartDate.format('MM/DD/YYYY') + ' to ' + ref.currentEndDate.format('MM/DD/YYYY')
+          ref.value = ref.currentStartDate.format('DD/MM/YYYY') + ' to ' + ref.currentEndDate.format('DD/MM/YYYY')
         }
       })
     },
