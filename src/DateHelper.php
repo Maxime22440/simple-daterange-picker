@@ -90,7 +90,7 @@ class DateHelper
                 break;
             default:
                 //Ex. 2020-06-15 to 2023-06-15
-                $parsed = explode(' - ', $value);
+                $parsed = explode(' to ', $value);
                 if (count($parsed) == 1) {
                     $start = Carbon::createFromFormat('Y-m-d', $value);
                     $end = $start->clone();
