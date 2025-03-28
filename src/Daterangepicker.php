@@ -85,7 +85,7 @@ class Daterangepicker extends Filter
         [$start, $end] = Helper::getParsedDatesGroupedRanges($this->default);
 
         if ($start && $end) {
-            return $start->format('Y-m-d').' to '.$end->format('Y-m-d');
+            return $start->format('Y-m-d').' - '.$end->format('Y-m-d');
         }
 
         return null;
