@@ -127,6 +127,8 @@ export default {
         "minDate": (minDate ? moment(minDate) : null),
         "maxDate": (maxDate ? moment(maxDate) : null),
         "ranges": ref.parseRanges(),
+        showDropdowns:  true,
+        linkedCalendars: false,
       }, function(start, end, label) {
         if (start && end) {
           ref.currentStartDate = start
